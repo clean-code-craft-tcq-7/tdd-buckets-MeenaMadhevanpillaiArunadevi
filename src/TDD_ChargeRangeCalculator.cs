@@ -9,8 +9,8 @@ namespace TestProject1
         public string getChargingSession_Ranges(int[] chargeRange)
         {
             string chargingSession_RangeReading = string.Empty;
-            if (chargeRange != null) //if {} or {3}
-            {
+            //if (chargeRange != null) //if {} or {3}
+            //{
                 int[] sortedValues = sortTheValues(chargeRange);
                 int startValue = sortedValues[0];
                 int endValue = sortedValues[0];
@@ -34,7 +34,7 @@ namespace TestProject1
                 }
                 chargingSession_RangeReading = string.Concat(chargingSession_RangeReading, FormatRangesWithReadings(startValue, endValue, readingCount));
                
-            }
+           // }
 
             return chargingSession_RangeReading;
         }
