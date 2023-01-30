@@ -1,0 +1,41 @@
+﻿1. Story :
+			to detect the ranges and output the number of readings in each range
+2. Analysis:
+			should handle single int input - {3}
+			should handle 2 values as input ; 1 range with same min and max value (duplicate) - {3,3}
+			should handle 2 values as input ; 1 range with different min and max value - {4,5}
+			should handle 2 values as input ; 2 ranges with 1 value(min and max) each - {3,5}
+			should handle >2 values as input ; 1 range with 2 same values - {3,3,4,5}
+			should handle >2 values as input ; >1 range with 2 same values - {3,3,4,5,10,11,12}
+			should handle >2 values as input ; >1 range with different values - {3,4,5,10}
+3. BDD : 
+			Given= {3}, When=getChargingSession_Ranges is called, Then="3,1" is expected
+			Given= {4,5}, When=getChargingSession_Ranges is called, Then="4-5, 2" is expected
+			Given= {3,5}, When=getChargingSession_Ranges is called, Then="3, 1\r\n5, 1" is expected
+			Given= {3,3,4,5,10,11,12}, When=getChargingSession_Ranges is called, Then="3-5, 4\r\n10-12, 3" is expected
+
+4. Upfront Design:
+			Create - class "Range"
+					 properties "min,max,readingCount"
+			Create - method "getChargingSession_Ranges"
+				     input Int array
+					 output String with Range and count (csv format)
+5. Unit Test Code:
+			TDD_ChargeRangeCalculator rangeDetector = new TDD_ChargeRangeCalculator();
+            Assert.True(rangeDetector.getChargingSession_Ranges(new int[]{4, 5}).Contains("4-5, 2"));
+			Add all the various test cases as per BDD analysis
+6. Compile Unit Test Code:
+7. ERROR
+8. Write essential code such that test code compiles
+9. Compile Unit Test code
+10.Test code compiled successfully
+11.Run Unit Test Code
+12.Test code FAIL
+13.Write essential code such that test code passes
+			Add logic to compute the range and readingCount ; format it to a string
+14.Test passed
+15.Refactor
+			Split the Sort , Format functionalities as separate methods
+
+			
+
