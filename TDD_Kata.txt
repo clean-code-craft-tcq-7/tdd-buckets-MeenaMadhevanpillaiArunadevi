@@ -24,13 +24,16 @@
 			TDD_ChargeRangeCalculator rangeDetector = new TDD_ChargeRangeCalculator();
             Assert.True(rangeDetector.getChargingSession_Ranges(new int[]{4, 5}).Contains("4-5, 2"));
 			Add all the various test cases as per BDD analysis
-6. Compile Unit Test Code:
-7. ERROR
-8. Write essential code such that test code compiles
-9. Compile Unit Test code
-10.Test code compiled successfully
-11.Run Unit Test Code
-12.Test code FAIL
+
+6. Use pre stored data for testing similar test cases (Data driven approach)
+
+		//>=1 range with unique values (sorted/unsorted) - use case 
+                //sorted
+                yield return new object[] { new int[] {3,5,7}, "3, 1\r\n5, 1\r\n7, 1\r\n" };
+                //unsorted
+                yield return new object[] { new int[] { 7, 6, 4, 5, 12, 15, 14 }, "4-7, 4\r\n12, 1\r\n14-15, 2\r\n" };
+
+
 13.Write essential code such that test code passes
 			Add logic to compute the range and readingCount ; format it to a string
 14.Test passed
